@@ -1,0 +1,249 @@
+﻿@model EVComparisons.Models.Cars
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Car</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <select asp-for="Type" class="form-control" onchange="disableSelectOneOption(this)">
+                    <option value="" disabled selected>Select One</option>
+                    @foreach (var carType in Enum.GetValues(typeof(ExtraInfo.CarTypes)))
+                    {
+                        var carTypeString = Enum.GetName(typeof(ExtraInfo.CarTypes), carType);
+                        var separatedCarType = System.Text.RegularExpressions.Regex.Replace(carTypeString, "(\\B[A-Z])", " $1");
+                        <option value="@carType">@separatedCarType</option>
+                    }
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <script>
+                function disableSelectOneOption(selectElement) {
+                    var selectOneOption = selectElement.querySelector("option[value='']");
+                    selectOneOption.disabled = true;
+                }
+            </script>
+
+            <div class="form-group">
+                <label asp-for="Maker" class="control-label"></label>
+                <input asp-for="Maker" class="form-control" />
+                <span asp-validation-for="Maker" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Range" class="control-label"></label>
+                <input asp-for="Range" class="form-control" />
+                <span asp-validation-for="Range" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullPrice" class="control-label"></label>
+                <input asp-for="FullPrice" class="form-control" />
+                <span asp-validation-for="FullPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seats" class="control-label"></label>
+                <input asp-for="Seats" class="form-control" />
+                <span asp-validation-for="Seats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Made" class="control-label"></label>
+                <input asp-for="Made" class="form-control" />
+                <span asp-validation-for="Made" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoVolume" class="control-label"></label>
+                <input asp-for="CargoVolume" class="form-control" />
+                <span asp-validation-for="CargoVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RoofRails" /> @Html.DisplayNameFor(model => model.RoofRails)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TowHitch" /> @Html.DisplayNameFor(model => model.TowHitch)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TowWeight" class="control-label"></label>
+                <input asp-for="TowWeight" class="form-control" />
+                <span asp-validation-for="TowWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxPayload" class="control-label"></label>
+                <input asp-for="MaxPayload" class="form-control" />
+                <span asp-validation-for="MaxPayload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Safety" class="control-label">
+                    Safety (1-5)
+                </label>
+                <select asp-for="Safety" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Safety" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BatteryCapacity" class="control-label"></label>
+                <input asp-for="BatteryCapacity" class="form-control" />
+                <span asp-validation-for="BatteryCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NormalChargePower" class="control-label"></label>
+                <input asp-for="NormalChargePower" class="form-control" />
+                <span asp-validation-for="NormalChargePower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NormalChargeTime" class="control-label"></label>
+                <input asp-for="NormalChargeTime" class="form-control" />
+                <span asp-validation-for="NormalChargeTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NormalChargePort" class="control-label">Normal Charge Port</label>
+                <select asp-for="NormalChargePort" class="form-control" onchange="disableSelectOneOption(this)">
+                    <option value="">Select one</option>
+                    @foreach (var portType in Enum.GetValues(typeof(ExtraInfo.PortTypes)))
+                    {
+                        <option value="@portType">@Enum.GetName(typeof(ExtraInfo.PortTypes), portType)</option>
+                    }
+                </select>
+                <span asp-validation-for="NormalChargePort" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NormalPortLocation" class="control-label">Normal Port Location</label>
+                <select asp-for="NormalPortLocation" class="form-control">
+                    <option value="">Select one</option>
+                    @foreach (var location in Enum.GetValues(typeof(ExtraInfo.Location)))
+                    {
+                        <option value="@location">@Enum.GetName(typeof(ExtraInfo.Location), location)</option>
+                    }
+                </select>
+                <span asp-validation-for="NormalPortLocation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FastChargePower" class="control-label"></label>
+                <input asp-for="FastChargePower" class="form-control" />
+                <span asp-validation-for="FastChargePower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FastChargeTime" class="control-label"></label>
+                <input asp-for="FastChargeTime" class="form-control" />
+                <span asp-validation-for="FastChargeTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FastChargePort" class="control-label"></label>
+                <select asp-for="FastChargePort" class="form-control">
+                    <option value="">Select one</option>
+                    @foreach (var portType in Enum.GetValues(typeof(ExtraInfo.PortTypes)))
+                    {
+                        <option value="@portType">@Enum.GetName(typeof(ExtraInfo.PortTypes), portType)</option>
+                    }
+                </select>
+                <span asp-validation-for="FastChargePort" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FastPortLocation" class="control-label"></label>
+                <select asp-for="FastPortLocation" class="form-control">
+                    <option value="">Select one</option>
+                    @foreach (var location in Enum.GetValues(typeof(ExtraInfo.Location)))
+                    {
+                        <option value="@location">@Enum.GetName(typeof(ExtraInfo.Location), location)</option>
+                    }
+                </select>
+                <span asp-validation-for="FastPortLocation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TopSpeed" class="control-label"></label>
+                <input asp-for="TopSpeed" class="form-control" />
+                <span asp-validation-for="TopSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NaughtTo60" class="control-label"></label>
+                <input asp-for="NaughtTo60" class="form-control" />
+                <span asp-validation-for="NaughtTo60" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Efficiency" class="control-label"></label>
+                <input asp-for="Efficiency" class="form-control" />
+                <span asp-validation-for="Efficiency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPower" class="control-label"></label>
+                <input asp-for="TotalPower" class="form-control" />
+                <span asp-validation-for="TotalPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalTorque" class="control-label"></label>
+                <input asp-for="TotalTorque" class="form-control" />
+                <span asp-validation-for="TotalTorque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Drive" class="control-label"></label>
+                <select asp-for="Drive" class="form-control">
+                    <option value="">Select one</option>
+                    @foreach (var driveType in Enum.GetValues(typeof(ExtraInfo.CarDriveType)))
+                    {
+                        <option value="@driveType">@driveType</option>
+                    }
+                </select>
+                <span asp-validation-for="Drive" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label"></label>
+                <input name="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

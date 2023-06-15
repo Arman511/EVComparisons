@@ -1,0 +1,204 @@
+﻿@model EVComparisons.Models.Cars
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maker)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maker)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Range) (mi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Range)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price (£)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seats)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seats)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Made)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Made)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoVolume).Replace("CargoVolume", "Cargo Volume (L)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoVolume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoofRails).Replace("RoofRails", "Roof Rails")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoofRails)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TowHitch).Replace("TowHitch", "Tow Hitch")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TowHitch)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TowWeight).Replace("Tow Weight", "Tow Weight")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TowWeight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaxPayload).Replace("Max Payload", "Max Payload (Kg)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaxPayload)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Safety).Replace("Safety", "Safety (1-5)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Safety)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BatteryCapacity).Replace("BatteryCapacity", "Battery Capacity (kWh)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BatteryCapacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NormalChargePower)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NormalChargePower)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NormalChargeTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NormalChargeTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NormalChargePort)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NormalChargePort)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NormalPortLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NormalPortLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FastChargePower)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FastChargePower)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FastChargeTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FastChargeTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FastChargePort)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FastChargePort)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FastPortLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FastPortLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TopSpeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TopSpeed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NaughtTo60)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NaughtTo60)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Efficiency)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Efficiency)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPower)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPower)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalTorque)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalTorque)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
