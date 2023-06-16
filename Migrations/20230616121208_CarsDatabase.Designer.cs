@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EVComparisons.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230615175822_CarsDatabase")]
+    [Migration("20230616121208_CarsDatabase")]
     partial class CarsDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,10 @@ namespace EVComparisons.Migrations
 
                     b.Property<int>("Length")
                         .HasColumnType("int");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Made")
                         .HasColumnType("int");

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search</h1>
+
+    <form asp-action="SearchResults">
+        <div class="form-group">
+            <label for="minPrice" class="control-label">Minimum Price</label>
+            <input name="minPrice" class="form-control" value="0" />
+        </div>
+        <div class="form-group">
+            <label for="maxPrice" class="control-label">Maximum Price</label>
+            <input name="maxPrice" class="form-control" value="1000000"/>
+        </div>
+        <div class="form-group">
+            <label for="maker" class="control-label">Maker</label>
+            <input name="maker" class="form-control" value=""/>
+        </div>
+        <div class="form-group">
+            <label for="range" class="control-label">Range</label>
+            <input name="range" class="form-control" value="0"/>
+        </div>
+        <div class="form-group" style="margin-top:10px">
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

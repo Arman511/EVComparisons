@@ -35,6 +35,7 @@
         public int Length { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public string Link { get; set; }
     }
 
     public class ExtraInfo
@@ -47,13 +48,13 @@
             Coupe,
             Convertible,
             Minivan,
-            PickupTruck,
-            SportsCar,
+            Pickup_Truck,
+            Sports_Car,
             Luxury,
             Compact,
             Crossover,
             OffRoad,
-            StationWagon
+            Station_Wagon
         }
 
         public enum PortTypes
@@ -66,18 +67,18 @@
 
         public enum Location
         {
-            FrontMiddle,
-            FrontLeft,
-            FrontRight,
-            RearLeft,
-            RearRight
+            Front_Middle,
+            Front_Left,
+            Front_Right,
+            Rear_Left,
+            Rear_Right
         }
 
         public enum CarDriveType
         {
             Rear,
             Front,
-            AllWheel
+            AWD
         }
     }
 }

@@ -62,6 +62,10 @@ namespace EVComparisons.Migrations
                     b.Property<int>("Length")
                         .HasColumnType("int");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Made")
                         .HasColumnType("int");
 

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EVComparisons.Models.Cars>
+<h4>Compare Cars</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="ShowCompareResult">
+            <div class ="form-group" style="margin: 5px;">
+            
+                            <label for="Car1" class="control-label"></label>
+                            <select name="Car1" class="form-control">
+                                <option value="-1">Select One</option>
+                                @foreach (var car in Model)
+                                {
+                                    string msg = car.Maker + " " + car.Model;
+                                    <option value="@car.Id">@msg</option>
+                                }
+                            </select>
+                      
+                            <label for="Car2" class="control-label"></label>
+                            <select name="Car2" class="form-control">
+                                <option value="-1">Select One</option>
+                                @foreach (var car in Model)
+                                {
+                                    string msg = car.Maker + " " + car.Model;
+                                    <option value="@car.Id">@msg</option>
+                                }
+                            </select>
+                        
+                            <label for="Car3" class="control-label"></label>
+                            <select name="Car3" class="form-control">
+                                <option value="-1">Select One</option>
+                                @foreach (var car in Model)
+                                {
+                                    string msg = car.Maker + " " + car.Model;
+                                    <option value="@car.Id">@msg</option>
+                                }
+                            </select>
+                        
+                        
+                            <label for="Car4" class="control-label"></label>
+                            <select name="Car4" class="form-control">
+                                <option value="-1">Select One</option>
+                                @foreach (var car in Model)
+                                {
+                                    string msg = car.Maker + " " + car.Model;
+                                    <option value="@car.Id">@msg</option>
+                                }
+                            </select>
+                     
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Compare" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

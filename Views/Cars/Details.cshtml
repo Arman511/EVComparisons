@@ -14,7 +14,7 @@
             @Html.DisplayNameFor(model => model.Type)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.Type)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Maker)
@@ -71,19 +71,19 @@
             @Html.DisplayFor(model => model.TowHitch)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TowWeight).Replace("Tow Weight", "Tow Weight")
+            @Html.DisplayNameFor(model => model.TowWeight).Replace("TowWeight", "Tow Weight (Kg)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TowWeight)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPayload).Replace("Max Payload", "Max Payload (Kg)")
+            @Html.DisplayNameFor(model => model.MaxPayload).Replace("MaxPayload", "Max Payload (Kg)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.MaxPayload)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Safety).Replace("Safety", "Safety (1-5)")
+            @Html.DisplayNameFor(model => model.Safety) (1-5)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Safety)
@@ -95,79 +95,79 @@
             @Html.DisplayFor(model => model.BatteryCapacity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargePower)
+            @Html.DisplayNameFor(model => model.NormalChargePower).Replace("NormalChargePower", "Normal Charge Power (kw AC)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NormalChargePower)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargeTime)
+            @Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Normal Charge Time (mins)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NormalChargeTime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargePort)
+            @Html.DisplayNameFor(model => model.NormalChargePort).Replace("NormalChargePort", "Normal Charge Port")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NormalChargePort)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalPortLocation)
+            @Html.DisplayNameFor(model => model.NormalPortLocation).Replace("NormalPortLocation", "Normal Port Location")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NormalPortLocation)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargePower)
+            @Html.DisplayNameFor(model => model.FastChargePower).Replace("FastChargePower", "Fast Charge Power (kw AC)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FastChargePower)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargeTime)
+            @Html.DisplayNameFor(model => model.FastChargeTime).Replace("FastChargeTime", "Fast Charge Time (mins)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FastChargeTime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargePort)
+            @Html.DisplayNameFor(model => model.FastChargePort).Replace("FastChargePort", "Fast Charge Port")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FastChargePort)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastPortLocation)
+            @Html.DisplayNameFor(model => model.FastPortLocation).Replace("FastPortLocation", "Fast Port Location")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FastPortLocation)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TopSpeed)
+            @Html.DisplayNameFor(model => model.TopSpeed).Replace("TopSpeed", "Top Speed (mph)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TopSpeed)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NaughtTo60)
+            @Html.DisplayNameFor(model => model.NaughtTo60).Replace("NaughtTo60", "0-60 (mins)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NaughtTo60)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Efficiency)
+            @Html.DisplayNameFor(model => model.Efficiency) (Wh/mi)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Efficiency)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPower)
+            @Html.DisplayNameFor(model => model.TotalPower).Replace("TotalPower", "Total Power (hp)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TotalPower)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalTorque)
+            @Html.DisplayNameFor(model => model.TotalTorque).Replace("TotalTorque", "Total Torque (lb-ft)")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TotalTorque)
@@ -179,26 +179,30 @@
             @Html.DisplayFor(model => model.Drive)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Length)
+            @Html.DisplayNameFor(model => model.Length) (mm)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Length)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Width)
+            @Html.DisplayNameFor(model => model.Width) (mm)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Width)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Height)
+            @Html.DisplayNameFor(model => model.Height) (mm)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Height)
         </dd>
+        <dt class="col-sm-2">
+            <a href="@Html.DisplayFor(model => model.Link)" style=" font-weight: normal;">Website</a>
+        </dt>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    
     <a asp-action="Index">Back to List</a>
 </div>
+

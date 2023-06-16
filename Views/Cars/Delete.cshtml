@@ -197,8 +197,14 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Height)
         </dd>
+        <dt class="col-sm-2">
+            <a href="@Html.DisplayFor(model => model.Link)" style=" font-weight: normal;">Link</a>
+        </dt>
     </dl>
-
+    <div class="form-group">
+        <label for="password" class="control-label"></label>
+        <input name="password" class="form-control" />
+    </div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

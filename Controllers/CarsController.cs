@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using EVComparisons.Data;
+﻿using EVComparisons.Data;
 using EVComparisons.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EVComparisons.Controllers
 {
@@ -25,6 +20,66 @@ namespace EVComparisons.Controllers
             return _context.Cars != null ?
                         View(await _context.Cars.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+        }
+
+        public async Task<IActionResult> Search()
+        {
+            return _context.Cars != null ?
+                        View("Search") :
+                        Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+        }
+
+        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range)
+        {
+            if (maker == null)
+            {
+                return _context.Cars != null ?
+               View("Index", await _context.Cars.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice).ToListAsync()) :
+               Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+            }
+            return _context.Cars != null ?
+               View("Index", await _context.Cars.Where(c => c.Maker.Equals(maker.Trim()) && c.Range >range && c.FullPrice > minPrice && c.FullPrice <maxPrice).ToListAsync()) :
+               Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+        }
+        
+
+        public async Task<IActionResult> SelectCompare()
+        {
+            return _context.Cars != null ?
+                        View(await _context.Cars.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+        }
+
+        public async Task<IActionResult> ShowCompareResult(int Car1, int Car2, int Car3, int Car4)
+        {
+            List<int> carIds = new List<int>();
+
+            if (Car1 != -1)
+            {
+                carIds.Add(Car1);
+            }
+            if (Car2 != -1)
+            {
+                carIds.Add(Car2);
+            }
+            if (Car3 != -1)
+            {
+                carIds.Add(Car3);
+            }
+            if (Car4 != -1)
+            {
+                carIds.Add(Car4);
+            }
+
+            if (_context.Cars != null)
+            {
+                var carsToDisplay = await _context.Cars.Where(c => carIds.Contains(c.Id)).ToListAsync();
+                return View("ShowCompareResult", carsToDisplay);
+            }
+            else
+            {
+                return Problem("Entity set 'ApplicationDbContext.Cars' is null.");
+            }
         }
 
         // GET: Cars/Details/5
@@ -56,7 +111,7 @@ namespace EVComparisons.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string password, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height")] Cars cars)
+        public async Task<IActionResult> Create(string password, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
         {
             if (ModelState.IsValid && password == "JeffIsRight")
             {
@@ -89,7 +144,7 @@ namespace EVComparisons.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string password, int id, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height")] Cars cars)
+        public async Task<IActionResult> Edit(string password, int id, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
         {
             if (id != cars.Id)
             {
@@ -140,14 +195,14 @@ namespace EVComparisons.Controllers
         // POST: Cars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, string password)
         {
             if (_context.Cars == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
             }
             var cars = await _context.Cars.FindAsync(id);
-            if (cars != null)
+            if (cars != null && password == "JeffIsRight")
             {
                 _context.Cars.Remove(cars);
             }
