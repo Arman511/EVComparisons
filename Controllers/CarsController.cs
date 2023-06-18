@@ -29,12 +29,12 @@ namespace EVComparisons.Controllers
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
-        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range)
+        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range, int chargeTime)
         {
             if (maker == null)
             {
                 return _context.Cars != null ?
-               View("Index", await _context.Cars.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice).ToListAsync()) :
+               View("Index", await _context.Cars.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice && c.NormalChargeTime < chargeTime).ToListAsync()) :
                Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
             }
             return _context.Cars != null ?
