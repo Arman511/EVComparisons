@@ -50,7 +50,7 @@ namespace EVComparisons.Controllers
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
-        public async Task<IActionResult> ShowCompareResult(int Car1, int Car2, int Car3, int Car4)
+        public async Task<IActionResult> ShowCompareResult(int Car1, int Car2, int Car3)
         {
             List<int> carIds = new List<int>();
 
@@ -66,11 +66,6 @@ namespace EVComparisons.Controllers
             {
                 carIds.Add(Car3);
             }
-            if (Car4 != -1)
-            {
-                carIds.Add(Car4);
-            }
-
             if (_context.Cars != null)
             {
                 var carsToDisplay = await _context.Cars.Where(c => carIds.Contains(c.Id)).ToListAsync();
@@ -111,7 +106,7 @@ namespace EVComparisons.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string password, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
+        public async Task<IActionResult> Create(string password, [Bind("Id,Type,ImageLink,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
         {
             if (ModelState.IsValid && password == "JeffIsRight")
             {
@@ -144,7 +139,7 @@ namespace EVComparisons.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string password, int id, [Bind("Id,Type,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
+        public async Task<IActionResult> Edit(string password, int id, [Bind("Id,Type,ImageLink,Maker,Model,Range,FullPrice,Seats,Made,CargoVolume,RoofRails,TowHitch,TowWeight,MaxPayload,Safety,BatteryCapacity,NormalChargePower,NormalChargeTime,NormalChargePort,NormalPortLocation,FastChargePower,FastChargeTime,FastChargePort,FastPortLocation,TopSpeed,NaughtTo60,Efficiency,TotalPower,TotalTorque,Drive,Length,Width,Height,Link")] Cars cars)
         {
             if (id != cars.Id)
             {

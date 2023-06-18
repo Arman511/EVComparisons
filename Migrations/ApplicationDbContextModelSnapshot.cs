@@ -59,25 +59,25 @@ namespace EVComparisons.Migrations
                     b.Property<int>("Height")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageLink")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Length")
                         .HasColumnType("int");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Made")
                         .HasColumnType("int");
 
                     b.Property<string>("Maker")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaxPayload")
                         .HasColumnType("int");
 
                     b.Property<string>("Model")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("NaughtTo60")

@@ -3,9 +3,10 @@
     public class Cars
     {
         public int Id { get; set; }
+        public string? ImageLink { get; set; }
         public ExtraInfo.CarTypes Type { get; set; }
-        public string Maker { get; set; }
-        public string Model { get; set; }
+        public string? Maker { get; set; }
+        public string? Model { get; set; }
         public int Range { get; set; }
         public int FullPrice { get; set; }
         public int Seats { get; set; }
@@ -35,7 +36,7 @@
         public int Length { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
-        public string Link { get; set; }
+        public string? Link { get; set; }
     }
 
     public class ExtraInfo
@@ -44,7 +45,7 @@
         {
             Hatchback,
             Sedan,
-            SUV,
+            Sports_Utility_Vehicle,
             Coupe,
             Convertible,
             Minivan,
@@ -59,8 +60,8 @@
 
         public enum PortTypes
         {
-            Type1,
-            Type2,
+            Type_1,
+            Type_2,
             CHAdeMo,
             CCS
         }
