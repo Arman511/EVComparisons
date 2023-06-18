@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-06-18T19:04:07.5438098Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-06-18T19:03:45.6824369Z"
+    },
+    "appInsights1": {
+      "restored": true,
+      "restoreTime": "2023-06-18T19:06:43.5379857Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "37f8201d-5a1e-4a43-93f0-a70c0ad69c66"
+    },
+    "appInsights1.resourceGroupName": {
+      "Name": "appInsights1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "EVComparisons"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "EVComparisons"
+    },
+    "appInsights1.subscriptionId": {
+      "Name": "appInsights1.subscriptionId",
+      "Type": "subscription",
+      "Value": "37f8201d-5a1e-4a43-93f0-a70c0ad69c66"
+    }
+  }
+}
