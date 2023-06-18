@@ -52,6 +52,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'EVComparisons'
-          slot-name: 'Production'
+          slot-name: 'Development'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_37BE6B3D8BB94EF2B9601A983D494F6A }}
           package: .
