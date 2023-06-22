@@ -4,6 +4,10 @@
       "restored": true,
       "restoreTime": "2023-06-18T18:49:43.5138208Z"
     },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-06-22T20:28:40.7943762Z"
+    },
     "appInsights1": {
       "restored": true,
       "restoreTime": "2023-06-18T18:32:13.2963744Z"
