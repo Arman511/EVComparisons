@@ -19,11 +19,11 @@
         public int MaxPayload { get; set; }
         public int Safety { get; set; }
         public double BatteryCapacity { get; set; }
-        public int NormalChargePower { get; set; }
+        public double NormalChargePower { get; set; }
         public int NormalChargeTime { get; set; }
         public ExtraInfo.PortTypes NormalChargePort { get; set; }
         public ExtraInfo.Location NormalPortLocation { get; set; }
-        public int FastChargePower { get; set; }
+        public double FastChargePower { get; set; }
         public int FastChargeTime { get; set; }
         public ExtraInfo.PortTypes FastChargePort { get; set; }
         public ExtraInfo.Location FastPortLocation { get; set; }
@@ -33,9 +33,9 @@
         public int TotalPower { get; set; }
         public int TotalTorque { get; set; }
         public ExtraInfo.CarDriveType Drive { get; set; }
-        public int Length { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public double Length { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
         public string? Link { get; set; }
     }
 
@@ -45,7 +45,7 @@
         {
             Hatchback,
             Sedan,
-            Sports_Utility_Vehicle,
+            SUV,
             Coupe,
             Convertible,
             Minivan,

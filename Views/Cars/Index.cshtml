@@ -2,9 +2,18 @@
 
 @{
     ViewData["Title"] = "Index";
+    var SortBy = ViewData["SortBy"] as string ?? ""; // Retrieve the current sort option
 }
 
 <h1>Index</h1>
+
+<p>
+    Sort by:
+    <a asp-action="Index" asp-route-SortBy="1">Maker</a> |
+    <a asp-action="Index" asp-route-SortBy="2">Model</a> |
+    <a asp-action="Index" asp-route-SortBy="3">Price: Low to High</a> |
+    <a asp-action="Index" asp-route-SortBy="4">Price: High to Low</a>
+</p>
 
 <table class="table">
     <thead>
@@ -25,13 +34,13 @@
                 @Html.DisplayNameFor(model => model.Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Range) (mi)
+                @Html.DisplayNameFor(model => model.Range)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Made)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price (£)")
+                @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")
             </th>
             <th></th>
         </tr>
@@ -40,8 +49,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td >
-                    <img  style="display: block; height: 50%; width: 100%" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
+                <td>
+                    <img style="display: block; height: 50%; width: 100%" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Maker)
@@ -59,13 +68,13 @@
                     @separatedCarType
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Range)
+                    @Html.DisplayFor(modelItem => item.Range) miles
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Made)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FullPrice)
+                    £@Html.DisplayFor(modelItem => item.FullPrice)
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>

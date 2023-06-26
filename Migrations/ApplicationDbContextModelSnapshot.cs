@@ -44,8 +44,8 @@ namespace EVComparisons.Migrations
                     b.Property<int>("FastChargePort")
                         .HasColumnType("int");
 
-                    b.Property<int>("FastChargePower")
-                        .HasColumnType("int");
+                    b.Property<double>("FastChargePower")
+                        .HasColumnType("float");
 
                     b.Property<int>("FastChargeTime")
                         .HasColumnType("int");
@@ -56,14 +56,14 @@ namespace EVComparisons.Migrations
                     b.Property<int>("FullPrice")
                         .HasColumnType("int");
 
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
 
                     b.Property<string>("ImageLink")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Length")
-                        .HasColumnType("int");
+                    b.Property<double>("Length")
+                        .HasColumnType("float");
 
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
@@ -86,8 +86,8 @@ namespace EVComparisons.Migrations
                     b.Property<int>("NormalChargePort")
                         .HasColumnType("int");
 
-                    b.Property<int>("NormalChargePower")
-                        .HasColumnType("int");
+                    b.Property<double>("NormalChargePower")
+                        .HasColumnType("float");
 
                     b.Property<int>("NormalChargeTime")
                         .HasColumnType("int");
@@ -125,8 +125,8 @@ namespace EVComparisons.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
+                    b.Property<double>("Width")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

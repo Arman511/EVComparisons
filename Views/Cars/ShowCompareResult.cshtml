@@ -81,17 +81,17 @@
         {
 
             <td>
-                @Html.DisplayFor(modelItem => item.Range)
+                @Html.DisplayFor(modelItem => item.Range) miles
             </td>
         }
     </tr>
     <tr>
-        <th>Full Price (£)</th>
+        <th>Full Price</th>
         @foreach (var item in Model)
         {
 
             <td>
-                @Html.DisplayFor(modelItem => item.FullPrice)
+                £@Html.DisplayFor(modelItem => item.FullPrice)
             </td>
         }
     </tr>
@@ -107,10 +107,10 @@
         }
     </tr>
     <tr>
-        <th>Cargo Volume (L)</th>
+        <th>Cargo Volume</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.CargoVolume)</td>
+            <td>@Html.DisplayFor(modelItem => item.CargoVolume) L</td>
         }
 
     </tr>
@@ -130,17 +130,17 @@
         }
     </tr>
     <tr>
-        <th>Tow Weight (Kg)</th>
+        <th>Tow Weight</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.TowWeight)</td>
+            <td>@Html.DisplayFor(modelItem => item.TowWeight) Kg</td>
         }
     </tr>
     <tr>
-        <th>Max Payload (Kg)</th>
+        <th>Max Payload</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.MaxPayload)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaxPayload) Kg</td>
         }
     </tr>
     <tr>
@@ -151,24 +151,24 @@
         }
     </tr>
     <tr>
-        <th>Battery Capacity (kWh)</th>
+        <th>Battery Capacity</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.BatteryCapacity)</td>
+            <td>@Html.DisplayFor(modelItem => item.BatteryCapacity) kWh</td>
         }
     </tr>
     <tr>
-        <th>Normal Charge Power (kW AC)</th>
+        <th>Normal Charge Power</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.NormalChargePower)</td>
+            <td>@Html.DisplayFor(modelItem => item.NormalChargePower) kW AC</td>
         }
     </tr>
     <tr>
-        <th>Normal Charge Time (mins)</th>
+        <th>Normal Charge Time</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.NormalChargeTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.NormalChargeTime) minutes</td>
         }
     </tr>
     <tr>
@@ -196,17 +196,17 @@
         }
     </tr>
     <tr>
-        <th>Fast Charge Power (kW AC)</th>
+        <th>Fast Charge Power</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.FastChargePower)</td>
+            <td>@Html.DisplayFor(modelItem => item.FastChargePower) kW AC</td>
         }
     </tr>
     <tr>
-        <th>Fast Charge Time (mins)</th>
+        <th>Fast Charge Time</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.FastChargeTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.FastChargeTime) minutes</td>
         }
     </tr>
     <tr>
@@ -234,38 +234,38 @@
         }
     </tr>
     <tr>
-        <th>Top Speed (mph)</th>
+        <th>Top Speed</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.TopSpeed)</td>
+            <td>@Html.DisplayFor(modelItem => item.TopSpeed)mph</td>
         }
     </tr>
     <tr>
-        <th>0-60 (mins)</th>
+        <th>0-60</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.NaughtTo60)</td>
+            <td>@Html.DisplayFor(modelItem => item.NaughtTo60) seconds</td>
         }
     </tr>
     <tr>
-        <th>Efficiency (Wh/mi)</th>
+        <th>Efficiency</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.Efficiency)</td>
+            <td>@Html.DisplayFor(modelItem => item.Efficiency) Wh/mi</td>
         }
     </tr>
     <tr>
-        <th>Total Power (hp)</th>
+        <th>Total Power</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.TotalPower)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalPower) Horsepower</td>
         }
     </tr>
     <tr>
-        <th>Total Torque (lb-ft)</th>
+        <th>Total Torque</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.TotalTorque)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalTorque) lb-ft</td>
         }
     </tr>
     <tr>
@@ -276,24 +276,24 @@
         }
     </tr>
     <tr>
-        <th>Length (mm)</th>
+        <th>Length</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.Length)</td>
+            <td>@Html.DisplayFor(modelItem => item.Length)m</td>
         }
     </tr>
     <tr>
-        <th>Width (mm)</th>
+        <th>Width</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.Width)</td>
+            <td>@Html.DisplayFor(modelItem => item.Width)m</td>
         }
     </tr>
     <tr>
-        <th>Height (mm)</th>
+        <th>Height</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.Height)</td>
+            <td>@Html.DisplayFor(modelItem => item.Height)m</td>
         }
     </tr>
     <tr>

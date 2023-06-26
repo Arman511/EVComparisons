@@ -15,12 +15,35 @@ namespace EVComparisons.Controllers
         }
 
         // GET: Cars
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? SortBy)
         {
-            return _context.Cars != null ?
-                        View(await _context.Cars.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+            IQueryable<Cars> carsQuery = _context.Cars;
+
+            switch (SortBy)
+            {
+                case 1:
+                    carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);
+                    break;
+                case 2:
+                    carsQuery = carsQuery.OrderBy(m => m.Model);
+                    break;
+                case 3:
+                    carsQuery = carsQuery.OrderBy(m => m.FullPrice);
+                    break;
+                case 4:
+                    carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
+                    break;
+                default:
+                    break;
+            }
+
+            var carsList = await carsQuery.ToListAsync();
+
+            return carsList != null
+                ? View(carsList)
+                : Problem("Entity set 'ApplicationDbContext.Cars' is null.");
         }
+
 
         public async Task<IActionResult> Search()
         {
@@ -29,24 +52,51 @@ namespace EVComparisons.Controllers
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
-        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range, int chargeTime)
+        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range, int chargeTime, int sortBy)
         {
-            if (maker == null)
+            IQueryable<Cars> carsQuery = _context.Cars;
+
+            switch (sortBy)
             {
-                return _context.Cars != null ?
-               View("Index", await _context.Cars.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice && c.NormalChargeTime < chargeTime).ToListAsync()) :
-               Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+                case 1:
+                    carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);
+                    break;
+                case 2:
+                    carsQuery = carsQuery.OrderBy(m => m.Model);
+                    break;
+                case 3:
+                    carsQuery = carsQuery.OrderBy(m => m.FullPrice);
+                    break;
+                case 4:
+                    carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
+                    break;
+                default:
+                    break;
             }
-            return _context.Cars != null ?
-               View("Index", await _context.Cars.Where(c => c.Maker.Equals(maker.Trim()) && c.Range >range && c.FullPrice > minPrice && c.FullPrice <maxPrice).ToListAsync()) :
-               Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+
+            if (string.IsNullOrEmpty(maker))
+            {
+                carsQuery = carsQuery.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+            }
+            else
+            {
+                carsQuery = carsQuery.Where(c => c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+            }
+            if (chargeTime != 0)
+            {
+                carsQuery = carsQuery.Where(c => c.NormalChargeTime < chargeTime);
+            }
+            var carsList = await carsQuery.ToListAsync();
+            return carsList != null
+                ? View("SearchResults", carsList)
+                : Problem("Entity set 'ApplicationDbContext.Cars' is null.");
         }
         
 
         public async Task<IActionResult> SelectCompare()
         {
             return _context.Cars != null ?
-                        View(await _context.Cars.ToListAsync()) :
+                        View(await _context.Cars.OrderBy(c => c.Maker).ThenBy(c => c.Model).ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
