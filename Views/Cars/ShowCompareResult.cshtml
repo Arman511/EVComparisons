@@ -28,289 +28,291 @@
 
 <h1>Compare Results</h1>
 <hr />
-<table class="table">
-    <tr>
-        <th>Image</th>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Image</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                <img class="image-size" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
-            </td>
-        }
-    </tr>
-    <tr>
+                <td>
+                    <img class="image-size" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
+                </td>
+            }
+        </tr>
+        <tr>
         
-        <th>Type</th>
-        @foreach (var item in Model)
-        {
+            <th>Type</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                @{
-                    var separatedCarType = item.Type.ToString().Replace("_", " ");
-                }
-                @separatedCarType
-            </td>
-        }
+                <td>
+                    @{
+                        var separatedCarType = item.Type.ToString().Replace("_", " ");
+                    }
+                    @separatedCarType
+                </td>
+            }
 
 
-    </tr>
-    <tr>
-        <th>Maker</th>
-        @foreach (var item in Model)
-        {
+        </tr>
+        <tr>
+            <th>Maker</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Maker)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Model</th>
-        @foreach (var item in Model)
-        {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maker)
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Model</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Range</th>
-        @foreach (var item in Model)
-        {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Range</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Range) miles
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Full Price</th>
-        @foreach (var item in Model)
-        {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Range) miles
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Full Price</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                £@Html.DisplayFor(modelItem => item.FullPrice)
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Seats</th>
-        @foreach (var item in Model){<td>@Html.DisplayFor(modelItem => item.Seats)</td>}
-    </tr>
-    <tr>
-        <th>Made</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Made)</td>
-        }
-    </tr>
-    <tr>
-        <th>Cargo Volume</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.CargoVolume) L</td>
-        }
+                <td>
+                    £@Html.DisplayFor(modelItem => item.FullPrice)
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Seats</th>
+            @foreach (var item in Model){<td>@Html.DisplayFor(modelItem => item.Seats)</td>}
+        </tr>
+        <tr>
+            <th>Made</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Made)</td>
+            }
+        </tr>
+        <tr>
+            <th>Cargo Volume</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.CargoVolume) L</td>
+            }
 
-    </tr>
-    <tr>
-        <th>Roof Rails</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.RoofRails)</td>
-        }
+        </tr>
+        <tr>
+            <th>Roof Rails</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.RoofRails)</td>
+            }
 
-    </tr>
-    <tr>
-        <th>Tow Hitch</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.TowHitch)</td>
-        }
-    </tr>
-    <tr>
-        <th>Tow Weight</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.TowWeight) Kg</td>
-        }
-    </tr>
-    <tr>
-        <th>Max Payload</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.MaxPayload) Kg</td>
-        }
-    </tr>
-    <tr>
-        <th>Safety (1-5)</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Safety)</td>
-        }
-    </tr>
-    <tr>
-        <th>Battery Capacity</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.BatteryCapacity) kWh</td>
-        }
-    </tr>
-    <tr>
-        <th>Normal Charge Power</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.NormalChargePower) kW AC</td>
-        }
-    </tr>
-    <tr>
-        <th>Normal Charge Time</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.NormalChargeTime) minutes</td>
-        }
-    </tr>
-    <tr>
-        <th>Normal Charge Port</th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @{
-                    var separatedPortType = item.NormalChargePort.ToString().Replace("_", " ");
-                }
-                @separatedPortType
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Normal Port Location</th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @{
-                    var separatedPortLocation = item.NormalPortLocation.ToString().Replace("_", " ");
-                }
-                @separatedPortLocation
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Fast Charge Power</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.FastChargePower) kW AC</td>
-        }
-    </tr>
-    <tr>
-        <th>Fast Charge Time</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.FastChargeTime) minutes</td>
-        }
-    </tr>
-    <tr>
-        <th>Fast Charge Port</th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @{
-                    var separatedPortType = item.FastChargePort.ToString().Replace("_", " ");
-                }
-                @separatedPortType
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Fast Port Location</th>
-        @foreach (var item in Model)
-        {
-            <td>
-                @{
-                    var separatedPortLocation = item.FastPortLocation.ToString().Replace("_", " ");
-                }
-                @separatedPortLocation
-            </td>
-        }
-    </tr>
-    <tr>
-        <th>Top Speed</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.TopSpeed)mph</td>
-        }
-    </tr>
-    <tr>
-        <th>0-60</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.NaughtTo60) seconds</td>
-        }
-    </tr>
-    <tr>
-        <th>Efficiency</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Efficiency) Wh/mi</td>
-        }
-    </tr>
-    <tr>
-        <th>Total Power</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.TotalPower) Horsepower</td>
-        }
-    </tr>
-    <tr>
-        <th>Total Torque</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.TotalTorque) lb-ft</td>
-        }
-    </tr>
-    <tr>
-        <th>Drive</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Drive)</td>
-        }
-    </tr>
-    <tr>
-        <th>Length</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Length)m</td>
-        }
-    </tr>
-    <tr>
-        <th>Width</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Width)m</td>
-        }
-    </tr>
-    <tr>
-        <th>Height</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Height)m</td>
-        }
-    </tr>
-    <tr>
-        <th>Link</th>
-        @foreach (var item in Model)
-        {
-            <td><a href="@Html.DisplayFor(modelItem => item.Link)" style=" font-weight: normal;">Website</a></td>
-        }
-    </tr>
-    <tr>
-        <th>Details</th>
-        @foreach (var item in Model)
-        {
+        </tr>
+        <tr>
+            <th>Tow Hitch</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.TowHitch)</td>
+            }
+        </tr>
+        <tr>
+            <th>Tow Weight</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.TowWeight) Kg</td>
+            }
+        </tr>
+        <tr>
+            <th>Max Payload</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.MaxPayload) Kg</td>
+            }
+        </tr>
+        <tr>
+            <th>Safety (1-5)</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Safety)</td>
+            }
+        </tr>
+        <tr>
+            <th>Battery Capacity</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.BatteryCapacity) kWh</td>
+            }
+        </tr>
+        <tr>
+            <th>Normal Charge Power</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.NormalChargePower) kW AC</td>
+            }
+        </tr>
+        <tr>
+            <th>Normal Charge Time</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.NormalChargeTime) minutes</td>
+            }
+        </tr>
+        <tr>
+            <th>Normal Charge Port</th>
+            @foreach (var item in Model)
+            {
+                <td>
+                    @{
+                        var separatedPortType = item.NormalChargePort.ToString().Replace("_", " ");
+                    }
+                    @separatedPortType
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Normal Port Location</th>
+            @foreach (var item in Model)
+            {
+                <td>
+                    @{
+                        var separatedPortLocation = item.NormalPortLocation.ToString().Replace("_", " ");
+                    }
+                    @separatedPortLocation
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Fast Charge Power</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.FastChargePower) kW AC</td>
+            }
+        </tr>
+        <tr>
+            <th>Fast Charge Time</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.FastChargeTime) minutes</td>
+            }
+        </tr>
+        <tr>
+            <th>Fast Charge Port</th>
+            @foreach (var item in Model)
+            {
+                <td>
+                    @{
+                        var separatedPortType = item.FastChargePort.ToString().Replace("_", " ");
+                    }
+                    @separatedPortType
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Fast Port Location</th>
+            @foreach (var item in Model)
+            {
+                <td>
+                    @{
+                        var separatedPortLocation = item.FastPortLocation.ToString().Replace("_", " ");
+                    }
+                    @separatedPortLocation
+                </td>
+            }
+        </tr>
+        <tr>
+            <th>Top Speed</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.TopSpeed)mph</td>
+            }
+        </tr>
+        <tr>
+            <th>0-60</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.NaughtTo60) seconds</td>
+            }
+        </tr>
+        <tr>
+            <th>Efficiency</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Efficiency) Wh/mi</td>
+            }
+        </tr>
+        <tr>
+            <th>Total Power</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.TotalPower) Horsepower</td>
+            }
+        </tr>
+        <tr>
+            <th>Total Torque</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.TotalTorque) lb-ft</td>
+            }
+        </tr>
+        <tr>
+            <th>Drive</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Drive)</td>
+            }
+        </tr>
+        <tr>
+            <th>Length</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Length)m</td>
+            }
+        </tr>
+        <tr>
+            <th>Width</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Width)m</td>
+            }
+        </tr>
+        <tr>
+            <th>Height</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Height)m</td>
+            }
+        </tr>
+        <tr>
+            <th>Link</th>
+            @foreach (var item in Model)
+            {
+                <td><a href="@Html.DisplayFor(modelItem => item.Link)" style=" font-weight: normal;">Website</a></td>
+            }
+        </tr>
+        <tr>
+            <th>Details</th>
+            @foreach (var item in Model)
+            {
 
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-            </td>
-        }
-    </tr>
-</table>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            }
+        </tr>
+    </table>
+</div>

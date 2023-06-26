@@ -6,71 +6,73 @@
 
 <h1>Search Results</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Image
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Maker)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Seats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Range)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Normal Charge Time")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    <img style="display: block; height: 50%; width: 100%" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Maker)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Seats)
-                </td>
-                <td>
-                    @{
-                        var separatedCarType = item.Type.ToString().Replace("_", " ");
-                    }
-                    @separatedCarType
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Range) miles
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NormalChargeTime) minutes
-                </td>
-                <td>
-                    £@Html.DisplayFor(modelItem => item.FullPrice)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
+                <th>
+                    Image
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Maker)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Seats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Range)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Normal Charge Time")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img style="display: block; height: 50%; width: 100%" src="@Html.DisplayFor(modelItem => item.ImageLink)" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maker)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seats)
+                    </td>
+                    <td>
+                        @{
+                            var separatedCarType = item.Type.ToString().Replace("_", " ");
+                        }
+                        @separatedCarType
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Range) miles
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NormalChargeTime) minutes
+                    </td>
+                    <td>
+                        £@Html.DisplayFor(modelItem => item.FullPrice)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

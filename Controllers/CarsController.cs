@@ -45,10 +45,10 @@ namespace EVComparisons.Controllers
         }
 
 
-        public async Task<IActionResult> Search()
+        public IActionResult Search()
         {
             return _context.Cars != null ?
-                        View("Search") :
+                        View() :
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
