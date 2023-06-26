@@ -14,7 +14,10 @@
             @Html.DisplayNameFor(model => model.Type)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.Type)
+            @{
+                var separatedCarType = Model.Type.ToString().Replace("_", " ");
+            }
+            @separatedCarType
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Maker)
@@ -110,13 +113,20 @@
             @Html.DisplayNameFor(model => model.NormalChargePort).Replace("NormalChargePort", "Normal Charge Port")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NormalChargePort)
+            @{
+                var separatedPortType = Model.NormalChargePort.ToString().Replace("_", " ");
+            }
+            @separatedPortType
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NormalPortLocation).Replace("NormalPortLocation", "Normal Port Location")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NormalPortLocation)
+            @{
+                var separatedPortLocation = Model.NormalPortLocation.ToString().Replace("_", " ");
+            }
+            @separatedPortLocation
+
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FastChargePower).Replace("FastChargePower", "Fast Charge Power (kw AC)")
@@ -134,13 +144,19 @@
             @Html.DisplayNameFor(model => model.FastChargePort).Replace("FastChargePort", "Fast Charge Port")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FastChargePort)
+            @{
+                var separatedFastPortType = Model.FastChargePort.ToString().Replace("_", " ");
+            }
+            @separatedFastPortType
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FastPortLocation).Replace("FastPortLocation", "Fast Port Location")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FastPortLocation)
+            @{
+                var separatedFastPortLocation = Model.FastPortLocation.ToString().Replace("_", " ");
+            }
+            @separatedFastPortLocation
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TopSpeed).Replace("TopSpeed", "Top Speed (mph)")

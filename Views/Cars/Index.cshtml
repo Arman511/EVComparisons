@@ -53,7 +53,10 @@
                     @Html.DisplayFor(modelItem => item.Seats)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Type)
+                    @{
+                        var separatedCarType = item.Type.ToString().Replace("_", " ");
+                    }
+                    @separatedCarType
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Range)

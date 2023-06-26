@@ -18,8 +18,7 @@
                     <option value="" disabled selected>Select One</option>
                     @foreach (var carType in Enum.GetValues(typeof(ExtraInfo.CarTypes)))
                     {
-                        var carTypeString = Enum.GetName(typeof(ExtraInfo.CarTypes), carType);
-                        var separatedCarType = System.Text.RegularExpressions.Regex.Replace(carTypeString, "(\\B[A-Z])", " $1");
+                        var separatedCarType = carType.ToString().Replace("_", " ");
                         <option value="@carType">@separatedCarType</option>
                     }
                 </select>
@@ -127,7 +126,8 @@
                     <option value="">Select one</option>
                     @foreach (var portType in Enum.GetValues(typeof(ExtraInfo.PortTypes)))
                     {
-                        <option value="@portType">@Enum.GetName(typeof(ExtraInfo.PortTypes), portType)</option>
+                        var separatedPortType = portType.ToString().Replace("_", " ");
+                        <option value="@portType">@separatedPortType</option>
                     }
                 </select>
                 <span asp-validation-for="NormalChargePort" class="text-danger"></span>
@@ -139,7 +139,8 @@
                     <option value="">Select one</option>
                     @foreach (var location in Enum.GetValues(typeof(ExtraInfo.Location)))
                     {
-                        <option value="@location">@Enum.GetName(typeof(ExtraInfo.Location), location)</option>
+                        var separatedLocation = location.ToString().Replace("_", " ");
+                        <option value="@location">@separatedLocation</option>
                     }
                 </select>
                 <span asp-validation-for="NormalPortLocation" class="text-danger"></span>
@@ -161,7 +162,8 @@
                     <option value="">Select one</option>
                     @foreach (var portType in Enum.GetValues(typeof(ExtraInfo.PortTypes)))
                     {
-                        <option value="@portType">@Enum.GetName(typeof(ExtraInfo.PortTypes), portType)</option>
+                        var separatedPortType = portType.ToString().Replace("_", " ");
+                        <option value="@portType">@separatedPortType</option>
                     }
                 </select>
                 <span asp-validation-for="FastChargePort" class="text-danger"></span>
@@ -173,7 +175,8 @@
                     <option value="">Select one</option>
                     @foreach (var location in Enum.GetValues(typeof(ExtraInfo.Location)))
                     {
-                        <option value="@location">@Enum.GetName(typeof(ExtraInfo.Location), location)</option>
+                        var separatedLocation = location.ToString().Replace("_", " ");
+                        <option value="@location">@separatedLocation</option>
                     }
                 </select>
                 <span asp-validation-for="FastPortLocation" class="text-danger"></span>

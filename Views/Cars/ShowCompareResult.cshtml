@@ -46,7 +46,10 @@
         {
 
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @{
+                    var separatedCarType = item.Type.ToString().Replace("_", " ");
+                }
+                @separatedCarType
             </td>
         }
 
@@ -172,14 +175,24 @@
         <th>Normal Charge Port</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.NormalChargePort)</td>
+            <td>
+                @{
+                    var separatedPortType = item.NormalChargePort.ToString().Replace("_", " ");
+                }
+                @separatedPortType
+            </td>
         }
     </tr>
     <tr>
         <th>Normal Port Location</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.NormalPortLocation)</td>
+            <td>
+                @{
+                    var separatedPortLocation = item.NormalPortLocation.ToString().Replace("_", " ");
+                }
+                @separatedPortLocation
+            </td>
         }
     </tr>
     <tr>
@@ -200,14 +213,24 @@
         <th>Fast Charge Port</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.FastChargePort)</td>
+            <td>
+                @{
+                    var separatedPortType = item.FastChargePort.ToString().Replace("_", " ");
+                }
+                @separatedPortType
+            </td>
         }
     </tr>
     <tr>
         <th>Fast Port Location</th>
         @foreach (var item in Model)
         {
-            <td>@Html.DisplayFor(modelItem => item.FastPortLocation)</td>
+            <td>
+                @{
+                    var separatedPortLocation = item.FastPortLocation.ToString().Replace("_", " ");
+                }
+                @separatedPortLocation
+            </td>
         }
     </tr>
     <tr>

@@ -19,8 +19,7 @@
                     <option value="" disabled selected>Select One</option>
                     @foreach (var carType in Enum.GetValues(typeof(ExtraInfo.CarTypes)))
                     {
-                        var carTypeString = Enum.GetName(typeof(ExtraInfo.CarTypes), carType);
-                        var separatedCarType = System.Text.RegularExpressions.Regex.Replace(carTypeString, "(\\B[A-Z])", " $1");
+                        var separatedCarType = carType.ToString().Replace("_", " ");
                         <option value="@carType">@separatedCarType</option>
                     }
                 </select>
