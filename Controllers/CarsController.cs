@@ -15,8 +15,11 @@ namespace EVComparisons.Controllers
         }
 
         // GET: Cars
-        public async Task<IActionResult> Index(int? SortBy)
+        public async Task<IActionResult> Index(int? SortBy, int? page)
         {
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
             IQueryable<Cars> carsQuery = _context.Cars;
 
             switch (SortBy)
@@ -38,7 +41,11 @@ namespace EVComparisons.Controllers
                     break;
             }
 
-            var carsList = await carsQuery.ToListAsync();
+            var totalCount = await carsQuery.CountAsync();
+            var carsList = await carsQuery.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            ViewData["TotalCount"] = totalCount;
+            ViewData["Page"] = pageNumber;
 
             return carsList != null
                 ? View(carsList)
@@ -53,10 +60,25 @@ namespace EVComparisons.Controllers
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
-        public async Task<IActionResult> SearchResults(string maker, int minPrice, int maxPrice, int range, int chargeTime, int sortBy)
+        public async Task<IActionResult> SearchResults(string? maker= null, int minPrice=0, int maxPrice=10000000, int range=0, int chargeTime =0, int sortBy=0, int page = 1)
         {
             IQueryable<Cars> carsQuery = _context.Cars;
 
+            // Apply filters based on search parameters
+            if (string.IsNullOrEmpty(maker))
+            {
+                carsQuery = carsQuery.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+            }
+            else
+            {
+                carsQuery = carsQuery.Where(c => c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+            }
+            if (chargeTime != 0)
+            {
+                carsQuery = carsQuery.Where(c => c.NormalChargeTime < chargeTime);
+            }
+
+            // Apply sorting based on sortBy parameter
             switch (sortBy)
             {
                 case 1:
@@ -76,24 +98,30 @@ namespace EVComparisons.Controllers
                     break;
             }
 
-            if (string.IsNullOrEmpty(maker))
-            {
-                carsQuery = carsQuery.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
-            }
-            else
-            {
-                carsQuery = carsQuery.Where(c => c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
-            }
-            if (chargeTime != 0)
-            {
-                carsQuery = carsQuery.Where(c => c.NormalChargeTime < chargeTime);
-            }
-            var carsList = await carsQuery.ToListAsync();
-            return carsList != null
-                ? View("SearchResults", carsList)
-                : Problem("Entity set 'ApplicationDbContext.Cars' is null.");
+            // Perform pagination
+            int pageSize = 10;
+            int totalItems = await carsQuery.CountAsync();
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+            int currentPage = Math.Max(1, Math.Min(page, totalPages));
+
+            // Retrieve the data for the current page
+            var carsList = await carsQuery.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            // Pass the search parameters and pagination information to the view
+            ViewData["maker"] = maker;
+            ViewData["range"] = range;
+            ViewData["minPrice"] = minPrice;
+            ViewData["maxPrice"] = maxPrice;
+            ViewData["chargeTime"] = chargeTime;
+            ViewData["sortBy"] = sortBy;
+            ViewData["Page"] = currentPage;
+            ViewData["TotalCount"] = totalItems;
+
+            return View("SearchResults", carsList);
         }
-        
+
+
+
 
         public async Task<IActionResult> SelectCompare()
         {
