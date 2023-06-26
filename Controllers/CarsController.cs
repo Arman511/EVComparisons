@@ -34,6 +34,7 @@ namespace EVComparisons.Controllers
                     carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
                     break;
                 default:
+                    carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);
                     break;
             }
 
@@ -71,6 +72,7 @@ namespace EVComparisons.Controllers
                     carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
                     break;
                 default:
+                    carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);
                     break;
             }
 
