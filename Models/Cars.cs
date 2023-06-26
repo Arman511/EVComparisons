@@ -44,18 +44,16 @@
         public enum CarTypes
         {
             Hatchback,
-            Sedan,
+            Saloon,
             SUV,
             Coupe,
-            Convertible,
-            Minivan,
-            Pickup_Truck,
+            MPV,
+            Pickup,
             Sports_Car,
             Luxury,
             Compact,
-            Crossover,
-            OffRoad,
-            Station_Wagon
+            Off_Road,
+            Estate
         }
 
         public enum PortTypes
