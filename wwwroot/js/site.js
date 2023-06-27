@@ -2,3 +2,11 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+document.getElementById('sortSelector').addEventListener('change', function () {
+    var sortBy = this.value;
+    var url = '/Cars/Index?SortBy=' + sortBy;
+    location.href = url;
+});
+
+

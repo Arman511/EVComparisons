@@ -74,7 +74,7 @@ namespace EVComparisons.Controllers
             }
             else
             {
-                carsQuery = carsQuery.Where(c => c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+                carsQuery = carsQuery.Where(c => c.Maker != null&& c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
             }
             if (chargeTime != 0)
             {
