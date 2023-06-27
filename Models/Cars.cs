@@ -1,4 +1,6 @@
-﻿namespace EVComparisons.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EVComparisons.Models
 {
     public class Cars
     {
@@ -8,6 +10,7 @@
         public string? Maker { get; set; }
         public string? Model { get; set; }
         public int Range { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int FullPrice { get; set; }
         public int Seats { get; set; }
 
