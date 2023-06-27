@@ -50,7 +50,7 @@
             MPV,
             Pickup,
             Sports_Car,
-            Luxury,
+            Luxury_Saloon,
             Compact,
             Off_Road,
             Estate

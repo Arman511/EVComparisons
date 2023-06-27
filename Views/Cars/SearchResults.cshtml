@@ -10,7 +10,8 @@
     var queryString = ViewContext.HttpContext.Request.QueryString.ToString();
 
     // Remove the "page" parameter from the query string
-    var cleanedQueryString = queryString.Replace("&page=" + currentPage, "").Replace("?page=" + currentPage, "");
+    var cleanedQueryString = queryString.Replace("&page=" + currentPage, "").Replace("?page=" + currentPage, "").Replace("?","");
+    string carModel = (ViewData["model"] as string) ?? "";
     string maker = (ViewData["maker"] as string) ?? "";
     var minPrice = ViewData["minPrice"] ?? "";
     var maxPrice = ViewData["maxPrice"] ?? "";
@@ -33,10 +34,11 @@
 <script>
     document.getElementById('sortSearchSelector').addEventListener('change', function () {
         var sortBy = this.value;
-        var url = `?maker=${encodeURIComponent('@maker')}&minPrice=${encodeURIComponent('@minPrice')}&maxPrice=${encodeURIComponent('@maxPrice')}&range=${encodeURIComponent('@range')}&chargeTime=${encodeURIComponent('@chargeTime')}&page=1&sortBy=${sortBy}`;
+        var url = `?maker=${encodeURIComponent('@maker')}&model=${encodeURIComponent('@carModel')}&minPrice=${encodeURIComponent('@minPrice')}&maxPrice=${encodeURIComponent('@maxPrice')}&range=${encodeURIComponent('@range')}&chargeTime=${encodeURIComponent('@chargeTime')}&page=1&sortBy=${sortBy}`;
         location.href = url;
     });
 </script>
+
 <div class="table-responsive">
     <table class="table">
         <thead>

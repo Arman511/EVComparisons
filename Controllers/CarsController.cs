@@ -63,19 +63,21 @@ namespace EVComparisons.Controllers
                         Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
         }
 
-        public async Task<IActionResult> SearchResults(string? maker= null, int minPrice=0, int maxPrice=10000000, int range=0, int chargeTime =0, int sortBy=0, int page = 1)
+        public async Task<IActionResult> SearchResults(string? model = null, string ? maker = null, int minPrice=0, int maxPrice=10000000, int range=0, int chargeTime =0, int sortBy=0, int page = 1)
         {
             IQueryable<Cars> carsQuery = _context.Cars;
 
             // Apply filters based on search parameters
-            if (string.IsNullOrEmpty(maker))
+            if (!string.IsNullOrEmpty(maker))
             {
-                carsQuery = carsQuery.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+                carsQuery = carsQuery.Where(c => c.Maker != null && c.Maker.Equals(maker.Trim()));
+                
             }
-            else
+            if (!string.IsNullOrEmpty(model))
             {
-                carsQuery = carsQuery.Where(c => c.Maker != null&& c.Maker.Equals(maker.Trim()) && c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
+                carsQuery = carsQuery.Where(c => c.Model != null && c.Model.Contains(model.Trim()));
             }
+            carsQuery = carsQuery.Where(c => c.Range > range && c.FullPrice > minPrice && c.FullPrice < maxPrice);
             if (chargeTime != 0)
             {
                 carsQuery = carsQuery.Where(c => c.NormalChargeTime < chargeTime);
@@ -115,6 +117,7 @@ namespace EVComparisons.Controllers
 
             // Pass the search parameters and pagination information to the view
             ViewData["maker"] = maker;
+            ViewData["model"] = model;
             ViewData["range"] = range;
             ViewData["minPrice"] = minPrice;
             ViewData["maxPrice"] = maxPrice;
