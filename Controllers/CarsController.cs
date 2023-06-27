@@ -36,6 +36,9 @@ namespace EVComparisons.Controllers
                 case 4:
                     carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
                     break;
+                case 5:
+                    carsQuery = carsQuery.OrderBy(m => m.NormalChargeTime);
+                    break;
                 default:
                     carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);
                     break;
@@ -92,6 +95,9 @@ namespace EVComparisons.Controllers
                     break;
                 case 4:
                     carsQuery = carsQuery.OrderByDescending(m => m.FullPrice);
+                    break;
+                case 5:
+                    carsQuery = carsQuery.OrderBy(m => m.NormalChargeTime);
                     break;
                 default:
                     carsQuery = carsQuery.OrderBy(m => m.Maker).ThenBy(m => m.Model);

@@ -12,7 +12,8 @@
     <a asp-action="Index" asp-route-SortBy="1">Maker</a> |
     <a asp-action="Index" asp-route-SortBy="2">Model</a> |
     <a asp-action="Index" asp-route-SortBy="3">Price: Low to High</a> |
-    <a asp-action="Index" asp-route-SortBy="4">Price: High to Low</a>
+    <a asp-action="Index" asp-route-SortBy="4">Price: High to Low</a> |
+    <a asp-action="Index" asp-route-SortBy="5">Charge Time</a>
 </p>
 
 <div class="table-responsive">
@@ -38,7 +39,7 @@
                     @Html.DisplayNameFor(model => model.Range)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Made)
+                    @Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Charge Time")
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")
@@ -72,7 +73,7 @@
                         @Html.DisplayFor(modelItem => item.Range) miles
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Made)
+                        @Html.DisplayFor(modelItem => item.NormalChargeTime)
                     </td>
                     <td>
                         £@Html.DisplayFor(modelItem => item.FullPrice)

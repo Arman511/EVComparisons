@@ -3,222 +3,168 @@
 @{
     ViewData["Title"] = "Details";
 }
-
 <h1>Details</h1>
 <hr />
 <div>
     <img style="width:100%;" src="@Html.DisplayFor(model => model.ImageLink)" />
-    <dl class="row">
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class="col-sm-10">
-            @{
-                var separatedCarType = Model.Type.ToString().Replace("_", " ");
-            }
-            @separatedCarType
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Maker)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Maker)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Range)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Range) miles
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")
-        </dt>
-        <dd class="col-sm-10">
-            £@Html.DisplayFor(model => model.FullPrice)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Seats)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Seats)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Made)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Made)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CargoVolume).Replace("CargoVolume", "Cargo Volume")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CargoVolume) L
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RoofRails).Replace("RoofRails", "Roof Rails")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoofRails)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TowHitch).Replace("TowHitch", "Tow Hitch")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TowHitch)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TowWeight).Replace("TowWeight", "Tow Weight")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TowWeight) Kg
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPayload).Replace("MaxPayload", "Max Payload")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MaxPayload) Kg
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Safety) (1-5)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Safety)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BatteryCapacity).Replace("BatteryCapacity", "Battery Capacity ")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BatteryCapacity) kWh
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargePower).Replace("NormalChargePower", "Normal Charge Power")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NormalChargePower) kW AC
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Normal Charge Time")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NormalChargeTime) minutes
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalChargePort).Replace("NormalChargePort", "Normal Charge Port")
-        </dt>
-        <dd class="col-sm-10">
-            @{
-                var separatedPortType = Model.NormalChargePort.ToString().Replace("_", " ");
-            }
-            @separatedPortType
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalPortLocation).Replace("NormalPortLocation", "Normal Port Location")
-        </dt>
-        <dd class="col-sm-10">
-            @{
-                var separatedPortLocation = Model.NormalPortLocation.ToString().Replace("_", " ");
-            }
-            @separatedPortLocation
-
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargePower).Replace("FastChargePower", "Fast Charge Power")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FastChargePower) kw AC
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargeTime).Replace("FastChargeTime", "Fast Charge Time (mins)")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FastChargeTime) minutes
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastChargePort).Replace("FastChargePort", "Fast Charge Port")
-        </dt>
-        <dd class="col-sm-10">
-            @{
-                var separatedFastPortType = Model.FastChargePort.ToString().Replace("_", " ");
-            }
-            @separatedFastPortType
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FastPortLocation).Replace("FastPortLocation", "Fast Port Location")
-        </dt>
-        <dd class="col-sm-10">
-            @{
-                var separatedFastPortLocation = Model.FastPortLocation.ToString().Replace("_", " ");
-            }
-            @separatedFastPortLocation
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TopSpeed).Replace("TopSpeed", "Top Speed")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TopSpeed)mph
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NaughtTo60).Replace("NaughtTo60", "0-60")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NaughtTo60) seconds
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Efficiency)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Efficiency) Wh/mi
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPower).Replace("TotalPower", "Total Power")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TotalPower) Horsepower
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalTorque).Replace("TotalTorque", "Total Torque")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TotalTorque) lb-ft
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drive)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drive)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Length)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Length)m
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Width)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Width)m
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Height)m
-        </dd>
-        <dt class="col-sm-2">
-            <a href="@Html.DisplayFor(model => model.Link)" style=" font-weight: normal;">Website</a>
-        </dt>
-    </dl>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Type)</th>
+                <td>
+                    @{
+                        var separatedCarType = Model.Type.ToString().Replace("_", " ");
+                    }
+                    @separatedCarType
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Maker)</th>
+                <td>@Html.DisplayFor(model => model.Maker)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Model)</th>
+                <td>@Html.DisplayFor(model => model.Model)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Range)</th>
+                <td>@Html.DisplayFor(model => model.Range) miles</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FullPrice).Replace("FullPrice", "Full Price")</th>
+                <td>£@Html.DisplayFor(model => model.FullPrice)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Seats)</th>
+                <td>@Html.DisplayFor(model => model.Seats)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Made)</th>
+                <td>@Html.DisplayFor(model => model.Made)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CargoVolume).Replace("CargoVolume", "Cargo Volume")</th>
+                <td>@Html.DisplayFor(model => model.CargoVolume) L</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.RoofRails).Replace("RoofRails", "Roof Rails")</th>
+                <td>@Html.DisplayFor(model => model.RoofRails)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TowHitch).Replace("TowHitch", "Tow Hitch")</th>
+                <td>@Html.DisplayFor(model => model.TowHitch)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TowWeight).Replace("TowWeight", "Tow Weight")</th>
+                <td>@Html.DisplayFor(model => model.TowWeight) Kg</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.MaxPayload).Replace("MaxPayload", "Max Payload")</th>
+                <td>@Html.DisplayFor(model => model.MaxPayload) Kg</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Safety) (1-5)</th>
+                <td>@Html.DisplayFor(model => model.Safety)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.BatteryCapacity).Replace("BatteryCapacity", "Battery Capacity ")</th>
+                <td>@Html.DisplayFor(model => model.BatteryCapacity) kWh</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NormalChargePower).Replace("NormalChargePower", "Normal Charge Power")</th>
+                <td>@Html.DisplayFor(model => model.NormalChargePower) kW AC</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NormalChargeTime).Replace("NormalChargeTime", "Normal Charge Time")</th>
+                <td>@Html.DisplayFor(model => model.NormalChargeTime) minutes</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NormalChargePort).Replace("NormalChargePort", "Normal Charge Port")</th>
+                <td>
+                    @{
+                        var separatedPortType = Model.NormalChargePort.ToString().Replace("_", " ");
+                    }
+                    @separatedPortType
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NormalPortLocation).Replace("NormalPortLocation", "Normal Port Location")</th>
+                <td>
+                    @{
+                        var separatedPortLocation = Model.NormalPortLocation.ToString().Replace("_", " ");
+                    }
+                    @separatedPortLocation
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FastChargePower).Replace("FastChargePower", "Fast Charge Power")</th>
+                <td>@Html.DisplayFor(model => model.FastChargePower) kw AC</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FastChargeTime).Replace("FastChargeTime", "Fast Charge Time (mins)")</th>
+                <td>@Html.DisplayFor(model => model.FastChargeTime) minutes</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FastChargePort).Replace("FastChargePort", "Fast Charge Port")</th>
+                <td>
+                    @{
+                        var separatedFastPortType = Model.FastChargePort.ToString().Replace("_", " ");
+                    }
+                    @separatedFastPortType
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FastPortLocation).Replace("FastPortLocation", "Fast Port Location")</th>
+                <td>
+                    @{
+                        var separatedFastPortLocation = Model.FastPortLocation.ToString().Replace("_", " ");
+                    }
+                    @separatedFastPortLocation
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TopSpeed).Replace("TopSpeed", "Top Speed")</th>
+                <td>@Html.DisplayFor(model => model.TopSpeed)mph</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NaughtTo60).Replace("NaughtTo60", "0-60")</th>
+                <td>@Html.DisplayFor(model => model.NaughtTo60) seconds</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Efficiency)</th>
+                <td>@Html.DisplayFor(model => model.Efficiency) Wh/mi</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TotalPower).Replace("TotalPower", "Total Power")</th>
+                <td>@Html.DisplayFor(model => model.TotalPower) Horsepower</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TotalTorque).Replace("TotalTorque", "Total Torque")</th>
+                <td>@Html.DisplayFor(model => model.TotalTorque) lb-ft</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Drive)</th>
+                <td>@Html.DisplayFor(model => model.Drive)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Length)</th>
+                <td>@Html.DisplayFor(model => model.Length)m</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Width)</th>
+                <td>@Html.DisplayFor(model => model.Width)m</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Height)</th>
+                <td>@Html.DisplayFor(model => model.Height)m</td>
+            </tr>
+            <tr>
+                <th><a href="@Html.DisplayFor(model => model.Link)" style=" font-weight: normal;">Website</a></th>
+                <td></td>
+            </tr>
+    </table>
 </div>
-<div>
-    
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
