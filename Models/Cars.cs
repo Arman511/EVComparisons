@@ -56,7 +56,8 @@ namespace EVComparisons.Models
             Luxury_Saloon,
             Compact,
             Off_Road,
-            Estate
+            Estate,
+            Luxury_Coupe,
         }
 
         public enum PortTypes

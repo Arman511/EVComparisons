@@ -56,14 +56,21 @@ namespace EVComparisons.Controllers
         }
 
 
-        public IActionResult Search()
+        public async Task<IActionResult> Search()
         {
-            return _context.Cars != null ?
-                        View() :
-                        Problem("Entity set 'ApplicationDbContext.Cars'  is null.");
+            IQueryable<Cars> carsQuery = _context.Cars.OrderBy(c => c.Maker);
+            var allMakers = await carsQuery.Select(m => m.Maker).Distinct().ToListAsync();
+            ViewData["allMakers"] = allMakers;
+            var allTypes = await carsQuery.Select(m => m.Type).Distinct().ToListAsync();
+            ViewData["allTypes"] = allTypes;
+
+            return _context.Cars != null
+                ? View()
+                : Problem("Entity set 'ApplicationDbContext.Cars' is null.");
         }
 
-        public async Task<IActionResult> SearchResults(string? model = null, string ? maker = null, int minPrice=0, int maxPrice=10000000, int range=0, int chargeTime =0, int sortBy=0, int page = 1)
+
+        public async Task<IActionResult> SearchResults(ExtraInfo.CarTypes? type,string? model = null, string ? maker = null, int minPrice=0, int maxPrice=10000000, int range=0, int chargeTime =0, int sortBy=0, int page = 1)
         {
             IQueryable<Cars> carsQuery = _context.Cars;
 
@@ -72,6 +79,11 @@ namespace EVComparisons.Controllers
             {
                 carsQuery = carsQuery.Where(c => c.Maker != null && c.Maker.Equals(maker.Trim()));
                 
+            }
+            if (type != null)
+            {
+                carsQuery = carsQuery.Where(c => c.Type.Equals(type));
+
             }
             if (!string.IsNullOrEmpty(model))
             {
@@ -122,6 +134,7 @@ namespace EVComparisons.Controllers
             ViewData["minPrice"] = minPrice;
             ViewData["maxPrice"] = maxPrice;
             ViewData["chargeTime"] = chargeTime;
+            ViewData["type"] = type;
             ViewData["sortBy"] = sortBy;
             ViewData["Page"] = currentPage;
             ViewData["TotalCount"] = totalItems;

@@ -17,6 +17,7 @@
     var maxPrice = ViewData["maxPrice"] ?? "";
     var range = ViewData["range"] ?? "";
     var chargeTime = ViewData["chargeTime"] ?? "";
+    var type = ViewData["type"] ?? "";
 }
 
 <h1>Search Results</h1>
@@ -34,7 +35,7 @@
 <script>
     document.getElementById('sortSearchSelector').addEventListener('change', function () {
         var sortBy = this.value;
-        var url = `?maker=${encodeURIComponent('@maker')}&model=${encodeURIComponent('@carModel')}&minPrice=${encodeURIComponent('@minPrice')}&maxPrice=${encodeURIComponent('@maxPrice')}&range=${encodeURIComponent('@range')}&chargeTime=${encodeURIComponent('@chargeTime')}&page=1&sortBy=${sortBy}`;
+        var url = `?maker=${encodeURIComponent('@maker')}&type=${encodeURIComponent('@type')}&model=${encodeURIComponent('@carModel')}&minPrice=${encodeURIComponent('@minPrice')}&maxPrice=${encodeURIComponent('@maxPrice')}&range=${encodeURIComponent('@range')}&chargeTime=${encodeURIComponent('@chargeTime')}&page=1&sortBy=${sortBy}`;
         location.href = url;
     });
 </script>
